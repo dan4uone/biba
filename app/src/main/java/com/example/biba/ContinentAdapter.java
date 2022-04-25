@@ -1,5 +1,6 @@
 package com.example.biba;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,12 @@ import java.util.ArrayList;
 
 public class ContinentAdapter extends RecyclerView.Adapter <ContinentAdapter.ContinentViewHolder>  {
     private ArrayList <Continent> list;
+    private OnClick onClick;
+
+    public ContinentAdapter(ArrayList<Continent> list, OnClick onClick) {
+        this.list = list;
+        this.onClick = onClick;
+    }
 
     @NonNull
     @Override
@@ -23,8 +30,15 @@ public class ContinentAdapter extends RecyclerView.Adapter <ContinentAdapter.Con
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ContinentViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ContinentViewHolder holder, @SuppressLint("RecyclerView") int position) {
+
         holder.bind(list.get(position));
+       holder.itemView.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               onClick.onClick(list.get(position));
+           }
+       });
     }
 
     @Override

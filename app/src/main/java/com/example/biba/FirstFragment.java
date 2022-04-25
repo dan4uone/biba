@@ -15,7 +15,7 @@ import com.example.biba.databinding.FragmentFirstBinding;
 
 import java.util.ArrayList;
 
-public class FirstFragment extends Fragment {
+public class FirstFragment extends Fragment implements OnClick {
     private FragmentFirstBinding binding;
     private ContinentAdapter adapter;
     private ArrayList <Continent> list;
@@ -33,19 +33,29 @@ public class FirstFragment extends Fragment {
 
         super.onViewCreated(view, savedInstanceState);
         loadData();
-        adapter= new ContinentAdapter();
+        adapter= new ContinentAdapter(list, (OnClick) this);
         binding.recycle.setAdapter(adapter);
+
 
     }
 
     private void loadData() {
         list = new ArrayList<>();
-        list.add(new Continent(R.drawable.australia, "Australia"));
+        list.add(new Continent(R.drawable.COC, "Australia"));
         list.add(new Continent(R.drawable.CAS, "Eurasia"));
         list.add(new Continent(R.drawable.sa, "SouthAmerica"));
         list.add(new Continent(R.drawable.na, "NorthAmerica"));
         list.add(new Continent(R.drawable.africa, "Africa"));
         list.add(new Continent(R.drawable.CEU, "Antarctica"));
+
+
+    }
+    public void onClick(Continent continent){
+        Bundle bundle = new Bundle();
+        bundle.putString("key", continent.getText());
+        Fragment fragment = new SecondFragment();
+        fragment.setArguments(bundle);
+        requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).addToBackStack(null).commit();
 
 
     }
