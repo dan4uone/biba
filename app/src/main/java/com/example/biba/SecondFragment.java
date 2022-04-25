@@ -63,22 +63,27 @@ public class SecondFragment extends Fragment implements OnClick {
                 list.add(new Continent(R.drawable.jm, "Jamaica"));
                 list.add(new Continent(R.drawable.cuba, "Cuba"));
                 list.add(new Continent(R.drawable.pa, "Panama"));
+                break;
             case "Eurasia":
                 list.add(new Continent(R.drawable.de, "Germany"));
                 list.add(new Continent(R.drawable.it, "Italy"));
                 list.add(new Continent(R.drawable.china, "China"));
                 list.add(new Continent(R.drawable.kg, "Spawnpoint"));
                 list.add(new Continent(R.drawable.kz, "Kazakhstan"));
+                break;
             case "Africa":
                 list.add(new Continent(R.drawable.south_af, "South Africa"));
                 list.add(new Continent(R.drawable.ng, "Nigeria"));
                 list.add(new Continent(R.drawable.ug, "Uganda"));
                 list.add(new Continent(R.drawable.nigger, "Niger"));
                 list.add(new Continent(R.drawable.ao, "Angola"));
+                break;
             case "Australia":
                 list.add(new Continent(R.drawable.au, "Australia"));
+                break;
             case "Antarctica" :
                 list.add(new Continent(R.drawable.CEU, "NONE") );
+                break;
 
 
 
